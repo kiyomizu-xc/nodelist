@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">arts</h1>
+        <a href="/art/new" class="btn btn-success">new art</a>
+        <% arts.forEach(x=>{%>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= x.title %> </h4>
+                    <div class="card-text mb-2"><%= x.body %> </div>
+            <a href="/art/<%= x.slug %> " class="btn btn-primary">Read More</a>
+            <a href="/art/edit/<%= x.id %> " class="btn btn-info">edit</a>
+            <form action="/art/<%= x.id %>?_method=delete " method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger">detele</button>
+            </form>
+
+                </div>
+            </div>
+        <% } ); %> 
+    </div>
+</body>
+</html>
